@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Geoffrin Edwin — Technical Knowledge Specialist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F6F4EE;
+    --ink:#20242B;
+    --ink-soft:#565C66;
+    --rule:#D9D3C6;
+    --accent:#FF00FF;
+    --accent-ink:#8A0088;
+    --sidebar-bg:#EDEAE1;
+    --max-width:920px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'IBM Plex Sans', sans-serif;
+    font-size:16px;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  a{color:var(--accent-ink);}
+  a:focus-visible, button:focus-visible{outline:2px solid var(--accent); outline-offset:2px;}
+
+  .page{
+    max-width:var(--max-width);
+    margin:0 auto;
+    min-height:100vh;
+    padding:0 0 40px;
+  }
+
+  .identity{padding:40px 40px 0;}
+  .name{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    font-size:2rem;
+    margin:0 0 4px;
+  }
+  .role-tag{
+    color:var(--accent-ink);
+    font-size:0.98rem;
+    margin:0 0 24px;
+  }
+
+  .tabs{
+    display:flex;
+    gap:4px;
+    padding:0 40px;
+    border-bottom:1px solid var(--rule);
+  }
+  .tab-btn{
+    font-family:'IBM Plex Sans', sans-serif;
+    font-size:0.98rem;
+    font-weight:500;
+    background:none;
+    border:none;
+    padding:12px 18px;
+    cursor:pointer;
+    color:var(--ink-soft);
+    border-bottom:2px solid transparent;
+    margin-bottom:-1px;
+  }
+  .tab-btn[aria-selected="true"]{
+    color:var(--ink);
+    border-bottom:2px solid var(--accent);
+  }
+  .tab-btn:hover{color:var(--ink);}
+
+  .tab-panel{display:none; padding:40px;}
+  .tab-panel.active{display:block;}
+
+  .pitch-lede{
+    font-family:'Fraunces', serif;
+    font-size:1.4rem;
+    font-weight:500;
+    max-width:34ch;
+    margin:0 0 28px;
+    line-height:1.3;
+  }
+  .pitch-lede em{font-style:normal; color:var(--accent-ink);}
+
+  .pitch-points{display:grid; gap:24px; margin-bottom:32px;}
+  .pitch-point h3{font-size:1.02rem; margin:0 0 6px; font-weight:600;}
+  .pitch-point p{margin:0; max-width:65ch; color:var(--ink); font-size:0.98rem;}
+  .pitch-point{padding-left:16px; border-left:2px solid var(--rule);}
+
+  .placeholder-note{
+    font-size:0.85rem;
+    color:var(--accent-ink);
+    background:#FFF0FC;
+    border:1px dashed var(--accent);
+    padding:12px 16px;
+    border-radius:4px;
+    max-width:60ch;
+  }
+
+  .resume-grid{display:grid; grid-template-columns:230px 1fr; gap:0 40px;}
+
+  .side-section{margin-bottom:28px;}
+  .side-section h2{
+    font-size:0.78rem;
+    font-weight:600;
+    letter-spacing:0.02em;
+    color:var(--ink-soft);
+    margin:0 0 10px;
+    padding-bottom:6px;
+    border-bottom:1px solid var(--rule);
+  }
+  .contact-list{list-style:none; margin:0; padding:0; font-size:0.92rem;}
+  .contact-list li{margin-bottom:6px; word-break:break-word;}
+  .skill-list{list-style:none; margin:0; padding:0; font-size:0.9rem;}
+  .skill-list li{padding:5px 0; border-bottom:1px dotted var(--rule); color:var(--ink-soft);}
+  .skill-list li:last-child{border-bottom:none;}
+  .edu-degree{font-size:0.92rem; font-weight:500; margin:0 0 3px;}
+  .edu-school{font-size:0.85rem; color:var(--ink-soft); margin:0;}
+  .lang-list{list-style:none; margin:0; padding:0; font-size:0.9rem; color:var(--ink-soft);}
+  .lang-list li{margin-bottom:4px;}
+
+  section{margin-bottom:36px;}
+  section > h2{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    font-size:1.25rem;
+    margin:0 0 16px;
+  }
+  .summary p{font-size:1rem; max-width:68ch; margin:0;}
+
+  .entry{
+    position:relative;
+    padding-left:22px;
+    margin-bottom:26px;
+    border-left:1px solid var(--rule);
+  }
+  .entry::before{
+    content:"";
+    position:absolute;
+    left:-4px; top:6px;
+    width:7px; height:7px;
+    border-radius:50%;
+    background:var(--accent);
+  }
+  .entry:last-child{margin-bottom:0;}
+  .entry-header{
+    display:flex; justify-content:space-between; align-items:baseline;
+    flex-wrap:wrap; gap:4px 16px; margin-bottom:4px;
+  }
+  .entry-title{font-weight:600; font-size:1rem;}
+  .entry-org{color:var(--ink-soft); font-weight:400;}
+  .entry-dates{font-size:0.85rem; color:var(--ink-soft); white-space:nowrap;}
+  .entry ul{margin:8px 0 0; padding-left:18px;}
+  .entry li{margin-bottom:6px; font-size:0.95rem;}
+
+  footer{
+    text-align:center;
+    font-size:0.8rem;
+    color:var(--ink-soft);
+    padding:20px 40px 0;
+  }
+
+  @media (max-width:680px){
+    .identity, .tabs, .tab-panel{padding-left:24px; padding-right:24px;}
+    .resume-grid{grid-template-columns:1fr;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <div class="identity">
+    <p class="name">Geoffrin Edwin</p>
+    <p class="role-tag">For the Technical Knowledge Specialist role — Fluid Topics</p>
+  </div>
+
+  <div class="tabs" role="tablist" aria-label="Page sections">
+    <button class="tab-btn" id="tab-pitch" role="tab" aria-selected="true" aria-controls="panel-pitch" onclick="showTab('pitch')">Why Fluid Topics should hire me</button>
+    <button class="tab-btn" id="tab-resume" role="tab" aria-selected="false" aria-controls="panel-resume" onclick="showTab('resume')">Resume</button>
+  </div>
+
+  <div class="tab-panel active" id="panel-pitch" role="tabpanel" aria-labelledby="tab-pitch">
+    <p class="pitch-lede">I turn <em>complex product knowledge</em> into content people actually understand.</p>
+
+    <div class="pitch-points">
+      <div class="pitch-point">
+        <h3>I've already been the go-to person for technical content on my team</h3>
+        <p>
+          Release notes, knowledge base documents, troubleshooters, and product blogs — I own
+          this end to end. I redesigned our release notes format from a
+          <a href="https://www.site24x7.com/help/apm/java-agent/java-agent-release-notes.html" target="_blank" rel="noopener">changelog-style listing</a>
+          into a <a href="https://www.site24x7.com/help/server-agent-release-notes.html" target="_blank" rel="noopener">clearer, scannable structure</a>,
+          and I write product blogs like
+          <a href="https://www.site24x7.com/blog/simplified-onboarding-using-configuration-rules" target="_blank" rel="noopener">this one on simplified onboarding</a>.
+        </p>
+      </div>
+
+      <div class="pitch-point">
+        <h3>I write in the words customers actually search for</h3>
+        <p>
+          I maintain our internal documentation so the support team isn't stuck waiting on
+          answers from an already overworked dev team. I also voluntarily took over support
+          ticket analysis for my team, which let me publish troubleshooters phrased the exact
+          way customers describe their problems — not the way engineers describe the system.
+        </p>
+      </div>
+
+      <div class="pitch-point">
+        <h3>I explain through examples, not abstractions</h3>
+        <p>
+          Use-case documents, graphics, and concrete references are how I make a feature
+          click. <a href="https://www.site24x7.com/solutions/server-monitor-alerts.html" target="_blank" rel="noopener">This solutions page</a>
+          is one example of turning a product capability into a narrative a buyer can follow
+          without technical background.
+        </p>
+      </div>
+
+      <div class="pitch-point">
+        <h3>I don't add to R&amp;D's workload — I understand enough to not need hand-holding</h3>
+        <p>
+          I'm comfortable with front-end concepts, user experience, and DevOps cycles. In my
+          experience, product and engineering teams often see technical writers as an extra
+          knowledge-transfer burden — I've worked to be the exception to that.
+        </p>
+      </div>
+
+      <div class="pitch-point">
+        <h3>I see product knowledge as the retention half of the growth equation</h3>
+        <p>
+          I work closely with marketing on supporting assets, with a clear division of labor
+          in mind: marketing brings users in, and strong technical product knowledge is what
+          keeps them.
+        </p>
+      </div>
+    </div>
+
+    <section>
+      <h2>How I stack up against the requirements</h2>
+      <div class="pitch-points">
+        <div class="pitch-point">
+          <h3>5+ years in a related B2B SaaS content role</h3>
+          <p>Technical writer since 2017 — 9+ years across Rolls-Royce, Google, and Zoho.</p>
+        </div>
+        <div class="pitch-point">
+          <h3>Master's degree in a related field</h3>
+          <p>
+            I hold a Bachelor's degree in Engineering rather than a master's. It's directly
+            relevant to understanding technical subject matter without a coding background,
+            though it doesn't formally meet a master's requirement if that's applied strictly.
+          </p>
+        </div>
+        <div class="pitch-point">
+          <h3>Exceptional writing and synthesis in English</h3>
+          <p>Demonstrated across the release notes, blog, and solutions content linked above.</p>
+        </div>
+        <div class="pitch-point">
+          <h3>Understanding technical subjects without an engineering background</h3>
+          <p>Comfortable across front-end concepts, user experience, and DevOps cycles.</p>
+        </div>
+        <div class="pitch-point">
+          <h3>Independently interviewing SMEs and structuring complex information</h3>
+          <p>Core part of how I've produced documentation and troubleshooters at my current team.</p>
+        </div>
+        <div class="pitch-point">
+          <h3>Meticulous, factually accurate content</h3>
+          <p>Built directly into how I maintain internal docs and support-facing troubleshooters.</p>
+        </div>
+        <div class="pitch-point">
+          <h3>Genuine interest in AI and technology</h3>
+          <p>
+            I actively use AI tools day to day — Claude for HTML work in VS Code, Claude Design
+            for slide templates and video. I treat them as efficiency tools, not a crutch: even
+            as usage costs rise, I want my own thinking sharp enough that losing access wouldn't
+            break my work.
+          </p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div class="tab-panel" id="panel-resume" role="tabpanel" aria-labelledby="tab-resume">
+    <div class="resume-grid">
+      <aside>
+        <div class="side-section">
+          <h2>Contact</h2>
+          <ul class="contact-list">
+            <li><a href="mailto:geoffrinsmailid@gmail.com">geoffrinsmailid@gmail.com</a></li>
+          </ul>
+        </div>
+
+        <div class="side-section">
+          <h2>Core skills</h2>
+          <ul class="skill-list">
+            <li>Technical &amp; functional documentation</li>
+            <li>SME interviewing</li>
+            <li>Solution briefs &amp; use-case narratives</li>
+            <li>Content management systems</li>
+            <li>Customer &amp; sales enablement</li>
+            <li>Cross-functional collaboration</li>
+            <li>SaaS / AI product content</li>
+            <li>Editorial ownership &amp; fact-checking</li>
+          </ul>
+        </div>
+
+        <div class="side-section">
+          <h2>Education</h2>
+          <p class="edu-degree">Bachelor of Engineering, Mechanical Engineering</p>
+          <p class="edu-school">Anna University, 2012 – 2016</p>
+        </div>
+
+        <div class="side-section">
+          <h2>Systems &amp; tools</h2>
+          <ul class="skill-list">
+            <li>S1000D, DITA, CSDB, Teamcenter</li>
+            <li>XML toolchains, Arbortext Editor</li>
+            <li>OpenCMS, Eleventy</li>
+            <li>AI-assisted authoring (Cline AI)</li>
+            <li>Photoshop, Illustrator</li>
+          </ul>
+        </div>
+
+        <div class="side-section">
+          <h2>Recognitions</h2>
+          <p class="edu-degree">Rolls-Royce Star Award</p>
+          <p class="edu-school">Disassembly manuals delivered under tight deadlines at 98.4% quality</p>
+          <p class="edu-degree" style="margin-top:12px;">Certificate of Appreciation, Zoho</p>
+          <p class="edu-school">CMS migration, OpenCMS to Eleventy</p>
+        </div>
+      </aside>
+
+      <main>
+        <section class="summary">
+          <h2>Summary</h2>
+          <p>
+            Technical Author with 9+ years turning complex B2B SaaS product capabilities —
+            architecture, AI, integrations, and security — into clear, accurate content for
+            sales teams, partners, and prospective customers. Skilled at interviewing
+            subject-matter experts and structuring technical depth into audience-appropriate
+            narratives. Proficient in AI-assisted authoring.
+          </p>
+        </section>
+
+        <section>
+          <h2>Experience</h2>
+
+          <div class="entry">
+            <div class="entry-header">
+              <span class="entry-title">Technical Writer <span class="entry-org">— Zoho Corporation</span></span>
+              <span class="entry-dates">2022 – Present</span>
+            </div>
+            <ul>
+              <li>Create and maintain help documentation for IT infrastructure monitoring tools, writing for both B2B/B2C end users and field technicians.</li>
+              <li>Built a workflow, using basic scripting, to convert customer complaint data directly into structured troubleshooting manuals — closing the loop between field issues and documentation.</li>
+              <li>Produced "how-to" instructional videos to complement written help documentation.</li>
+              <li>Led a full CMS migration from OpenCMS to Eleventy, recognized with a Certificate of Appreciation.</li>
+              <li>Implemented an AI-assisted authoring integration (Cline AI) into the help documentation repository using lightweight scripting, cutting publishing time by 70%.</li>
+            </ul>
+          </div>
+
+          <div class="entry">
+            <div class="entry-header">
+              <span class="entry-title">Technical Writer <span class="entry-org">— Google Operations Centre</span></span>
+              <span class="entry-dates">2020 – 2022</span>
+            </div>
+            <ul>
+              <li>Created and maintained the help documentation repository for Google Ads; ran structured A/B experiments to measurably improve the readability of troubleshooting manuals.</li>
+              <li>Introduced a generic-image reuse approach that cut the time required to produce technical illustrations, applying content-reuse thinking from structured XML authoring.</li>
+            </ul>
+          </div>
+
+          <div class="entry">
+            <div class="entry-header">
+              <span class="entry-title">Technical Writer <span class="entry-org">— Rolls-Royce GmbH (on behalf of Lionbridge Technologies)</span></span>
+              <span class="entry-dates">2017 – 2020</span>
+            </div>
+            <ul>
+              <li>Authored and maintained S1000D data modules in Simplified Technical English for maintenance, overhaul, and inspection tasks on aircraft engines, producing modular, reusable content for IETMs and printed manuals.</li>
+              <li>Interpreted engineering drawings and OEM technical data to translate complex mechanical systems into clear, step-by-step repair and inspection procedures.</li>
+              <li>Managed the full content lifecycle in a Common Source Database (CSDB) and Teamcenter, from initial authoring through revision and reuse.</li>
+              <li>Migrated legacy ATA iSpec 2200 content to S1000D, mapping task structures and illustrations to a structured data-module architecture to improve reuse and cut update effort.</li>
+              <li>Authored technical procedures and troubleshooting guides with step-by-step task flows and safety cautions, validating every procedure directly with engineering subject-matter experts.</li>
+              <li>Received the Rolls-Royce Star Award for delivering disassembly manuals under tight deadlines at a 98.4% quality score.</li>
+            </ul>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <footer>This page is unlisted and not indexed by search engines.</footer>
+
+</div>
+
+<script>
+  function showTab(name){
+    const tabs = ['pitch', 'resume'];
+    tabs.forEach(function(t){
+      document.getElementById('tab-' + t).setAttribute('aria-selected', t === name ? 'true' : 'false');
+      document.getElementById('panel-' + t).classList.toggle('active', t === name);
+    });
+  }
+</script>
+
+</body>
+</html>
