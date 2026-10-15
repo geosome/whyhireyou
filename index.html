@@ -4,12 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
-<title>Geoffrin Edwin — Content Engineer | GTM & Technical Systems</title>
+<title>Geoffrin Edwin — Content Engineer | GTM &amp; Technical Systems</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
+    color-scheme:dark;
     --paper:#0D1117;
     --paper-card:#161B22;
     --paper-subtle:#21262D;
@@ -23,7 +24,7 @@
   }
 
   *{box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion:no-preference){ html{scroll-behavior:smooth;} }
 
   body{
     margin:0;
@@ -37,7 +38,7 @@
 
   a{color:var(--accent); text-decoration:none;}
   a:hover{text-decoration:underline;}
-  a:focus-visible, button:focus-visible{outline:2px solid var(--accent); outline-offset:2px;}
+  a:focus-visible, button:focus-visible, .tab-panel:focus-visible{outline:2px solid var(--accent); outline-offset:2px;}
   code{font-family:'IBM Plex Mono', monospace; font-size:0.9em; background:var(--paper-subtle); padding:2px 6px; border-radius:4px; color:#79C0FF;}
 
   .page{
@@ -62,8 +63,9 @@
     font-weight:500;
     margin:0 0 24px;
     display:flex;
+    flex-wrap:wrap;
     align-items:center;
-    gap:8px;
+    gap:4px 8px;
   }
   .role-tag span{color:var(--ink-soft); font-size:0.9rem;}
 
@@ -72,6 +74,7 @@
     gap:8px;
     padding:0 40px;
     border-bottom:1px solid var(--rule);
+    overflow-x:auto;
   }
   .tab-btn{
     font-family:'IBM Plex Sans', sans-serif;
@@ -84,6 +87,7 @@
     color:var(--ink-soft);
     border-bottom:2px solid transparent;
     margin-bottom:-1px;
+    white-space:nowrap;
     transition:color 0.15s ease;
   }
   .tab-btn[aria-selected="true"]{
@@ -121,19 +125,18 @@
     position:relative;
     transition:border-color 0.2s ease;
   }
-  .pitch-card:hover{
-    border-color:#58A6FF66;
-  }
-  .pitch-card h3{
+  .pitch-card:hover{border-color:#58A6FF66;}
+  .pitch-card h2{
     font-size:1.05rem;
     font-weight:600;
     margin:0 0 10px;
     color:#FFFFFF;
     display:flex;
+    flex-wrap:wrap;
     align-items:center;
-    gap:10px;
+    gap:6px 10px;
   }
-  .pitch-card h3 .pill{
+  .pitch-card h2 .pill{
     font-family:'IBM Plex Mono', monospace;
     font-size:0.75rem;
     font-weight:400;
@@ -141,6 +144,7 @@
     background:var(--accent-glow);
     padding:2px 8px;
     border-radius:12px;
+    white-space:nowrap;
   }
   .pitch-card p{margin:0; color:var(--ink); font-size:0.95rem; line-height:1.6;}
   .pitch-card ul{margin:10px 0 0; padding-left:20px; color:var(--ink-soft); font-size:0.92rem;}
@@ -159,10 +163,7 @@
     margin:0 0 16px;
     color:#FFFFFF;
   }
-  .proof-item{
-    padding:14px 0;
-    border-bottom:1px solid var(--rule);
-  }
+  .proof-item{padding:14px 0; border-bottom:1px solid var(--rule);}
   .proof-item:last-child{border-bottom:none; padding-bottom:0;}
   .proof-item .title{font-weight:600; color:#FFFFFF; margin-bottom:4px;}
   .proof-item .desc{color:var(--ink-soft); font-size:0.92rem;}
@@ -183,7 +184,7 @@
   .contact-list{list-style:none; margin:0; padding:0; font-size:0.92rem;}
   .contact-list li{margin-bottom:8px; word-break:break-word;}
   .skill-list{list-style:none; margin:0; padding:0; font-size:0.9rem;}
-  .skill-list li{padding:6px 0; border-bottom:1px solid #21262D; color:var(--ink-soft);}
+  .skill-list li{padding:6px 0; border-bottom:1px solid var(--paper-subtle); color:var(--ink-soft);}
   .skill-list li strong{color:var(--ink);}
   .skill-list li:last-child{border-bottom:none;}
   .edu-degree{font-size:0.92rem; font-weight:500; margin:0 0 3px; color:#FFFFFF;}
@@ -246,24 +247,25 @@
   <div class="identity">
     <h1 class="name">Geoffrin Edwin</h1>
     <div class="role-tag">
-      Content Engineer &bull; Technical Systems &amp; GTM 
+      Content Engineer &bull; Technical Systems &amp; GTM
       <span>(Application Pitch for Growth Team)</span>
     </div>
   </div>
 
   <div class="tabs" role="tablist" aria-label="Page sections">
-    <button class="tab-btn" id="tab-pitch" role="tab" aria-selected="true" aria-controls="panel-pitch" onclick="showTab('pitch')">The Proof &amp; Pitch</button>
-    <button class="tab-btn" id="tab-resume" role="tab" aria-selected="false" aria-controls="panel-resume" onclick="showTab('resume')">System Experience &amp; Resume</button>
+    <button class="tab-btn" id="tab-pitch" role="tab" aria-selected="true" aria-controls="panel-pitch" tabindex="0" type="button">The Proof &amp; Pitch</button>
+    <button class="tab-btn" id="tab-resume" role="tab" aria-selected="false" aria-controls="panel-resume" tabindex="-1" type="button">System Experience &amp; Resume</button>
   </div>
 
-  <div class="tab-panel active" id="panel-pitch" role="tabpanel" aria-labelledby="tab-pitch">
+  <main>
+  <div class="tab-panel active" id="panel-pitch" role="tabpanel" aria-labelledby="tab-pitch" tabindex="0">
     <p class="pitch-lede">
-      You need an engine that gets expertise <em>out of engineers' heads and onto the web</em> and the important part is, without shipping slop. Here is how I build it.
+      You need an engine that gets expertise <em>out of engineers' heads and onto the web</em>, without shipping slop. Here is how I build it.
     </p>
 
     <div class="pitch-grid">
       <div class="pitch-card">
-        <h3>1. The Machine: I build the pipeline, not a content calendar <span class="pill">Systems</span></h3>
+        <h2>1. The Machine: I build the pipeline, not a content calendar <span class="pill">Systems</span></h2>
         <p>
           I don't manually route drafts through review committees or write in Word docs. To solve my team's bottleneck at Site24x7, I engineered a serverless headless CMS on <strong>Zoho Catalyst</strong>:
         </p>
@@ -275,7 +277,7 @@
       </div>
 
       <div class="pitch-card">
-        <h3>2. The Extraction: Sourcing tacit knowledge from the support trenches <span class="pill">Zero Hand-Holding</span></h3>
+        <h2>2. The Extraction: Sourcing tacit knowledge from the support trenches <span class="pill">Zero Hand-Holding</span></h2>
         <p>
           The hardest part of technical content isn't generating words; it's extracting truth from engineers who have other jobs. To bypass standard marketing questionnaires:
         </p>
@@ -287,9 +289,9 @@
       </div>
 
       <div class="pitch-card">
-        <h3>3. Taste &amp; Anti-Slop: Why naive LLM drafts fail engineers <span class="pill">Judgment</span></h3>
+        <h2>3. Taste &amp; Anti-Slop: Why naive LLM drafts fail engineers <span class="pill">Judgment</span></h2>
         <p>
-          A model given a topic prompt writes a Wikipedia summary disguised as a blog post. It outputs polite abstractions ("Chaos engineering tests resilience in turbulent conditions"). People who actually work in tech, smell AI and leave.
+          A model given a topic prompt writes a Wikipedia summary disguised as a blog post. It outputs polite abstractions ("Chaos engineering tests resilience in turbulent conditions"). People who actually work in tech smell AI and leave.
         </p>
         <p style="margin-top:8px;">
           My bar for content is: <em>does this sound like someone who debugged this at 2 AM?</em> Tone guardrails, structured JSON outputs, and strict evaluation against concrete telemetry data keep the output sharp.
@@ -297,9 +299,9 @@
       </div>
 
       <div class="pitch-card">
-        <h3>4. Production Video &amp; Technical Media <span class="pill">Autonomous GTM</span></h3>
+        <h2>4. Production Video &amp; Technical Media <span class="pill">Autonomous GTM</span></h2>
         <p>
-          Strictly no agencies, briefing loops, review cycles, and inflated bills. I script, record, and edit my own technical onboarding videos and architectural walkthroughs using <strong>Camtasia</strong>, <strong>Claude Design</strong>, Canva, and <strong>Loom</strong> to explain infrastructure concepts visually.
+          No agencies, briefing loops, review cycles, or inflated bills. I script, record, and edit my own technical onboarding videos and architectural walkthroughs using <strong>Camtasia</strong>, <strong>Claude Design</strong>, Canva, and <strong>Loom</strong> to explain infrastructure concepts visually.
         </p>
       </div>
     </div>
@@ -325,7 +327,7 @@
     </div>
   </div>
 
-  <div class="tab-panel" id="panel-resume" role="tabpanel" aria-labelledby="tab-resume">
+  <div class="tab-panel" id="panel-resume" role="tabpanel" aria-labelledby="tab-resume" tabindex="0">
     <div class="resume-grid">
       <aside>
         <div class="side-section">
@@ -363,13 +365,13 @@
         </div>
       </aside>
 
-      <main>
+      <div>
         <section class="summary">
           <h2>Profile</h2>
           <p>
-            Content Engineer with 9+ years bridging technical documentation, systems automation, and LLM workflows. 
-            Architect of custom serverless CMS pipelines on Zoho Catalyst with live two-way synchronization, automated diff checks, 
-            and pre-merge style validation agents. Deep experience extracting unspoken engineering knowledge by directly triaging 
+            Content Engineer with 9+ years bridging technical documentation, systems automation, and LLM workflows.
+            Architect of custom serverless CMS pipelines on Zoho Catalyst with live two-way synchronization, automated diff checks,
+            and pre-merge style validation agents. Deep experience extracting unspoken engineering knowledge by directly triaging
             support queues and interfacing with CTOs, cloud architects, and DevOps leads.
           </p>
         </section>
@@ -383,7 +385,7 @@
               <span class="entry-dates">2022 – Present</span>
             </div>
             <ul>
-              <li><strong>Built Autonomous CMS Pipeline:</strong> Architected a serverless content engine on Zoho Catalyst eliminating manual .doc &rarr; HTML publication cycles. System ingests live URLs, syncs edits bidirectional via diff checks, and pushes directly to git repositories.</li>
+              <li><strong>Built Autonomous CMS Pipeline:</strong> Architected a serverless content engine on Zoho Catalyst eliminating manual .doc &rarr; HTML publication cycles. System ingests live URLs, syncs edits bidirectionally via diff checks, and pushes directly to git repositories.</li>
               <li><strong>Automated Code-Review Agent:</strong> Authored the org-wide technical documentation style guide and deployed an automated pre-merge evaluation agent that audits incoming PRs for formatting, voice, and syntax consistency.</li>
               <li><strong>Tacit Knowledge Extraction:</strong> Voluntarily assumed responsibility for triage across the customer support queue. Shadowed escalations with enterprise CTOs and DevOps engineers, translating edge-case failure modes into architectural blueprints and technical blogs.</li>
               <li><strong>High-Signal Technical Authoring:</strong> Authored practitioner-focused technical assets establishing authoritative patterns for enterprise engineers, including <a href="https://www.site24x7.com/blog/simplified-onboarding-using-configuration-rules" target="_blank" rel="noopener">'Simplified Onboarding Using Configuration Rules'</a> and <a href="https://www.site24x7.com/solutions/detect-cyber-attacks-with-server-monitoring.html" target="_blank" rel="noopener">'Detect Cyber Attacks with Server Monitoring'</a>.</li>
@@ -415,30 +417,46 @@
             </ul>
           </div>
         </section>
-      </main>
+      </div>
     </div>
   </div>
+  </main>
 
   <footer>Pitch &amp; Portfolio Page &bull; Geoffrin Edwin</footer>
 
 </div>
 
 <script>
-  function showTab(name){
-    var tabs = ['pitch', 'resume'];
-    tabs.forEach(function(t){
+  var TABS = ['pitch', 'resume'];
+
+  function showTab(name, focus){
+    TABS.forEach(function(t){
       var btn = document.getElementById('tab-' + t);
       var panel = document.getElementById('panel-' + t);
-      if (btn && panel) {
-        btn.setAttribute('aria-selected', t === name ? 'true' : 'false');
-        if (t === name) {
-          panel.classList.add('active');
-        } else {
-          panel.classList.remove('active');
-        }
-      }
+      if (!btn || !panel) return;
+      var on = (t === name);
+      btn.setAttribute('aria-selected', on ? 'true' : 'false');
+      btn.tabIndex = on ? 0 : -1;
+      panel.classList.toggle('active', on);
+      if (on && focus) btn.focus();
     });
   }
+
+  TABS.forEach(function(t){
+    document.getElementById('tab-' + t).addEventListener('click', function(){ showTab(t); });
+  });
+
+  document.querySelector('.tabs').addEventListener('keydown', function(e){
+    var i = TABS.indexOf(document.activeElement.id.replace('tab-', ''));
+    if (i < 0) return;
+    if (e.key === 'ArrowRight') i = (i + 1) % TABS.length;
+    else if (e.key === 'ArrowLeft') i = (i - 1 + TABS.length) % TABS.length;
+    else if (e.key === 'Home') i = 0;
+    else if (e.key === 'End') i = TABS.length - 1;
+    else return;
+    e.preventDefault();
+    showTab(TABS[i], true);
+  });
 </script>
 
 </body>
