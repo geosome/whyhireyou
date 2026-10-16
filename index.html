@@ -68,6 +68,18 @@
     gap:4px 8px;
   }
   .role-tag span{color:var(--ink-soft); font-size:0.9rem;}
+  .timezone-pill{
+    display:inline-flex;
+    align-items:center;
+    background:var(--accent-glow);
+    border:1px solid #58A6FF55;
+    color:var(--accent);
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.8rem;
+    padding:3px 10px;
+    border-radius:14px;
+    margin-left:6px;
+  }
 
   .tabs{
     display:flex;
@@ -103,7 +115,7 @@
     font-family:'Fraunces', serif;
     font-size:1.5rem;
     font-weight:500;
-    max-width:40ch;
+    max-width:42ch;
     margin:0 0 32px;
     line-height:1.35;
     color:#FFFFFF;
@@ -148,7 +160,7 @@
   }
   .pitch-card p{margin:0; color:var(--ink); font-size:0.95rem; line-height:1.6;}
   .pitch-card ul{margin:10px 0 0; padding-left:20px; color:var(--ink-soft); font-size:0.92rem;}
-  .pitch-card li{margin-bottom:4px;}
+  .pitch-card li{margin-bottom:6px;}
 
   .proof-box{
     background:var(--paper-card);
@@ -166,7 +178,7 @@
   .proof-item{padding:14px 0; border-bottom:1px solid var(--rule);}
   .proof-item:last-child{border-bottom:none; padding-bottom:0;}
   .proof-item .title{font-weight:600; color:#FFFFFF; margin-bottom:4px;}
-  .proof-item .desc{color:var(--ink-soft); font-size:0.92rem;}
+  .proof-item .desc{color:var(--ink-soft); font-size:0.92rem; line-height:1.55;}
 
   .resume-grid{display:grid; grid-template-columns:250px 1fr; gap:0 40px;}
 
@@ -248,7 +260,7 @@
     <h1 class="name">Geoffrin Edwin</h1>
     <div class="role-tag">
       Content Engineer &bull; Technical Systems &amp; GTM
-      <span>(Application Pitch for Growth Team)</span>
+      <span class="timezone-pill">Remote &bull; Works in US Timezone</span>
     </div>
   </div>
 
@@ -265,43 +277,46 @@
 
     <div class="pitch-grid">
       <div class="pitch-card">
-        <h2>1. The Machine: I build the pipeline, not a content calendar <span class="pill">Systems</span></h2>
+        <h2>1. The Machine: Agentic Pipelines &amp; Evals, Not a Content Calendar <span class="pill">Systems</span></h2>
         <p>
-          I don't manually route drafts through review committees or write in Word docs. To solve my team's bottleneck at Site24x7, I engineered a serverless headless CMS on <strong>Zoho Catalyst</strong>:
+          I don't manually route drafts through review committees or write in Word docs. To eliminate our team's editorial bottleneck at Site24x7, I built a serverless content pipeline on <strong>Zoho Catalyst + Git Webhooks</strong>:
         </p>
         <ul>
-          <li><strong>URL Ingestion &amp; Live Sync:</strong> Fetches live production docs, spins up a structured markdown/HTML editor, and writes back updates in real time.</li>
-          <li><strong>Automated Diff-Check Pipeline:</strong> Programmatically parses peer/legal reviews via bidirectional diff checks, reconciles changes, and pushes production-ready code directly to git repositories.</li>
-          <li><strong>Pre-Merge Style Agent:</strong> Built an automated evaluation agent in the repo that lints incoming PRs against our technical style guide (which I authored), eliminating manual nitpicking and voice drift.</li>
+          <li><strong>URL Ingestion &amp; AST Sync:</strong> Fetches live production documentation, spins up a structured markdown/HTML editor, and writes back updates via real-time diff reconciliation.</li>
+          <li><strong>Multi-Step LLM Evals:</strong> Custom evaluation agents audit incoming drafts with structured JSON outputs. They test specifically for voice drift, unsubstantiated marketing claims, and syntax consistency before PR merge.</li>
+          <li><strong>Agentic Daily Tooling:</strong> Daily workflows run through Claude Code, MCP servers, and custom agent skills to turn raw system logs and telemetry into structured drafts without human blocking.</li>
         </ul>
       </div>
 
       <div class="pitch-card">
-        <h2>2. The Extraction: Sourcing tacit knowledge from the support trenches <span class="pill">Zero Hand-Holding</span></h2>
+        <h2>2. The Extraction: Sourcing Truth from the Support Trenches <span class="pill">Zero Hand-Holding</span></h2>
         <p>
-          The hardest part of technical content isn't generating words; it's extracting truth from engineers who have other jobs. To bypass standard marketing questionnaires:
+          The hardest part of technical content isn't generating words; it's extracting tacit truth from engineers who have other jobs. To bypass generic marketing questionnaires:
         </p>
         <ul>
           <li>I voluntarily took over <strong>support ticket triage</strong> for our entire infrastructure monitoring team.</li>
-          <li>I sat inside real enterprise escalations with <strong>CTOs, Cloud Architects, and DevOps leads</strong> to see exactly where distributed systems collapsed.</li>
+          <li>I sat inside high-stakes enterprise escalations with <strong>CTOs, Cloud Architects, and DevOps leads</strong> to diagnose exactly where distributed systems collapsed.</li>
           <li>I interviewed the core platform developers on the fix, bypassing PR filters to turn undocumented production edge cases into high-credibility architecture guides.</li>
         </ul>
+        <p style="margin-top:10px; color:var(--ink-soft); font-size:0.92rem; border-top:1px solid var(--paper-subtle); padding-top:8px;">
+          <em>The parallel to modern data:</em> Just like silent memory leaks crash production servers, silent schema drift and corrupted upstream inputs break modern data warehouses (Snowflake, BigQuery, dbt). I write from the incident log, not the brochure.
+        </p>
       </div>
 
       <div class="pitch-card">
-        <h2>3. Taste &amp; Anti-Slop: Why naive LLM drafts fail engineers <span class="pill">Judgment</span></h2>
+        <h2>3. Taste &amp; Anti-Slop: Why Naive LLM Drafts Fail Technical Audiences <span class="pill">Judgment</span></h2>
         <p>
-          A model given a topic prompt writes a Wikipedia summary disguised as a blog post. It outputs polite abstractions ("Chaos engineering tests resilience in turbulent conditions"). People who actually work in tech smell AI and leave.
+          A model given a generic prompt writes a Wikipedia summary disguised as a blog post. It outputs polite abstractions ("Chaos engineering tests resilience in turbulent conditions"). Practitioners smell AI and bounce immediately.
         </p>
         <p style="margin-top:8px;">
-          My bar for content is: <em>does this sound like someone who debugged this at 2 AM?</em> Tone guardrails, structured JSON outputs, and strict evaluation against concrete telemetry data keep the output sharp.
+          My bar for content: <em>does this sound like someone who debugged this pipeline at 2 AM?</em> Concrete failure modes, verified CLI outputs, and multi-step prompt chains with programmatic schema validation keep the output sharp, credible, and authentic.
         </p>
       </div>
 
       <div class="pitch-card">
         <h2>4. Production Video &amp; Technical Media <span class="pill">Autonomous GTM</span></h2>
         <p>
-          No agencies, briefing loops, review cycles, or inflated bills. I script, record, and edit my own technical onboarding videos and architectural walkthroughs using <strong>Camtasia</strong>, <strong>Claude Design</strong>, Canva, and <strong>Loom</strong> to explain infrastructure concepts visually.
+          No agencies, briefing loops, review cycles, or inflated bills. I script, record, and edit my own technical walkthroughs and architecture teardowns using <strong>Camtasia</strong>, <strong>Claude Design</strong>, Canva, and <strong>Loom</strong> to explain infrastructure and data workflows visually.
         </p>
       </div>
     </div>
@@ -310,19 +325,19 @@
       <h2>Proof of Work: Writing for Systems &amp; Infrastructure Practitioners</h2>
       <div class="proof-item">
         <div class="title"><a href="https://www.site24x7.com/solutions/detect-cyber-attacks-with-server-monitoring.html" target="_blank" rel="noopener">Detect Cyber Attacks with Server Monitoring &rarr;</a></div>
-        <div class="desc">Systems deep dive examining how lower-level server telemetry, process spikes, port anomalies, and cron audits act as early-warning intrusion detectors.</div>
+        <div class="desc">Systems deep dive examining how lower-level server telemetry, anomalous process spikes, open socket behavior, and cron audits act as early-warning intrusion detectors for security engineers.</div>
       </div>
       <div class="proof-item">
         <div class="title"><a href="https://www.site24x7.com/blog/simplified-onboarding-using-configuration-rules" target="_blank" rel="noopener">Automated Infrastructure Onboarding via Configuration Rules &rarr;</a></div>
-        <div class="desc">A practitioner-focused guide detailing dynamic regex tag-matching, automated threshold assignment, and bulk alert-profile association for cloud fleets.</div>
+        <div class="desc">A practitioner-focused guide detailing dynamic regex tag-matching, automated threshold assignment, and bulk alert-profile association for cloud-scale fleets.</div>
       </div>
       <div class="proof-item">
-        <div class="title">The Catalyst Headless CMS &amp; Style Linter (Internal Project)</div>
-        <div class="desc">Serverless content engine running on Zoho Catalyst + Git webhooks with automated PR style evaluations and two-way diff synchronization.</div>
+        <div class="title">The Catalyst Headless CMS &amp; LLM Style Linter (Internal Project)</div>
+        <div class="desc">Serverless content engine running on Zoho Catalyst + Git webhooks with multi-step LLM pre-merge evaluation agents and bi-directional diff synchronization.</div>
       </div>
       <div class="proof-item">
         <div class="title">A little vocal on LinkedIn as well</div>
-        <div class="desc">Here are a couple of my takes on AI. No slop. Pure human brain thoughts: Exhibit <a href="https://lnkd.in/p/g6fXtxPf" target="_blank" rel="noopener">one</a> and <a href="https://lnkd.in/p/g6JKbJ3m" target="_blank" rel="noopener">two</a>.</div>
+        <div class="desc">Public commentary on human-first AI workflows and rejecting synthetic slop: Exhibit <a href="https://lnkd.in/p/g6fXtxPf" target="_blank" rel="noopener">one</a> and <a href="https://lnkd.in/p/g6JKbJ3m" target="_blank" rel="noopener">two</a>.</div>
       </div>
     </div>
   </div>
@@ -331,10 +346,10 @@
     <div class="resume-grid">
       <aside>
         <div class="side-section">
-          <h2>Contact</h2>
+          <h2>Contact &amp; Availability</h2>
           <ul class="contact-list">
             <li><a href="mailto:geoffrinsmailid@gmail.com">geoffrinsmailid@gmail.com</a></li>
-            <li>Chennai, India</li>
+            <li><strong style="color:var(--accent);">Remote (Works in US Timezone)</strong></li>
             <li style="margin-top:6px;"><a href="https://lnkd.in/p/g6fXtxPf" target="_blank" rel="noopener">LinkedIn Note 1</a> &bull; <a href="https://lnkd.in/p/g6JKbJ3m" target="_blank" rel="noopener">Note 2</a></li>
           </ul>
         </div>
@@ -342,10 +357,10 @@
         <div class="side-section">
           <h2>Technical Arsenal</h2>
           <ul class="skill-list">
-            <li><strong>AI / Agentic:</strong> Claude Code, Cline AI, LLM eval agents, prompt chaining, structured outputs</li>
-            <li><strong>Engineering / Stack:</strong> Zoho Catalyst (Serverless), Git, Eleventy (11ty), REST APIs, Webhooks, HTML/CSS, Python/TS basics</li>
-            <li><strong>Systems Fluency:</strong> Server telemetry, APM, cloud infrastructure, incident triage, log monitoring</li>
-            <li><strong>Content Systems:</strong> Headless CMS design, S1000D/DITA XML, Technical Style Guide authoring</li>
+            <li><strong>AI / Agentic:</strong> Claude Code, MCP Servers &amp; Skills, Multi-step LLM Evals, Prompt Chaining, Structured JSON Outputs</li>
+            <li><strong>Systems &amp; Stack:</strong> Zoho Catalyst (Serverless), Git, Eleventy (11ty), REST APIs, Webhooks, Python/TS basics</li>
+            <li><strong>Data &amp; Systems Fluency:</strong> Data observability parallels, schema drift, server telemetry anomalies, incident triage</li>
+            <li><strong>Content Systems:</strong> Headless CMS design, Technical Style Guide authoring, S1000D / STE</li>
             <li><strong>Multimedia:</strong> Camtasia, Loom, Claude Design, Canva, technical diagramming</li>
           </ul>
         </div>
@@ -369,10 +384,11 @@
         <section class="summary">
           <h2>Profile</h2>
           <p>
-            Content Engineer with 9+ years bridging technical documentation, systems automation, and LLM workflows.
-            Architect of custom serverless CMS pipelines on Zoho Catalyst with live two-way synchronization, automated diff checks,
-            and pre-merge style validation agents. Deep experience extracting unspoken engineering knowledge by directly triaging
-            support queues and interfacing with CTOs, cloud architects, and DevOps leads.
+            Content Engineer with 9+ years bridging technical systems, developer content, and LLM automation pipelines.
+            Architect of custom serverless headless CMS pipelines on Zoho Catalyst featuring bidirectional diff synchronization
+            and automated pre-merge LLM style evaluation agents. Proven record extracting tacit engineering knowledge directly
+            from support triage and enterprise escalations with CTOs and cloud architects—connecting infrastructure observability
+            to data quality principles (schema drift, silent pipeline failures). Fully autonomous builder working across US timezones.
           </p>
         </section>
 
@@ -385,11 +401,11 @@
               <span class="entry-dates">2022 – Present</span>
             </div>
             <ul>
-              <li><strong>Built Autonomous CMS Pipeline:</strong> Architected a serverless content engine on Zoho Catalyst eliminating manual .doc &rarr; HTML publication cycles. System ingests live URLs, syncs edits bidirectionally via diff checks, and pushes directly to git repositories.</li>
-              <li><strong>Automated Code-Review Agent:</strong> Authored the org-wide technical documentation style guide and deployed an automated pre-merge evaluation agent that audits incoming PRs for formatting, voice, and syntax consistency.</li>
+              <li><strong>Architected Autonomous CMS Pipeline:</strong> Engineered a serverless content engine on Zoho Catalyst eliminating manual .doc &rarr; HTML publication cycles. System ingests live URLs, syncs edits bidirectionally via diff checks, and pushes directly to git repositories.</li>
+              <li><strong>Multi-Step LLM Style Evaluation Agents:</strong> Authored org-wide technical documentation style guide and deployed automated pre-merge evaluation agents in the repository that audit PRs for formatting, voice, and syntax consistency, eliminating manual nitpicking and voice drift.</li>
               <li><strong>Tacit Knowledge Extraction:</strong> Voluntarily assumed responsibility for triage across the customer support queue. Shadowed escalations with enterprise CTOs and DevOps engineers, translating edge-case failure modes into architectural blueprints and technical blogs.</li>
               <li><strong>High-Signal Technical Authoring:</strong> Authored practitioner-focused technical assets establishing authoritative patterns for enterprise engineers, including <a href="https://www.site24x7.com/blog/simplified-onboarding-using-configuration-rules" target="_blank" rel="noopener">'Simplified Onboarding Using Configuration Rules'</a> and <a href="https://www.site24x7.com/solutions/detect-cyber-attacks-with-server-monitoring.html" target="_blank" rel="noopener">'Detect Cyber Attacks with Server Monitoring'</a>.</li>
-              <li><strong>Agentic Workflow Integration:</strong> Integrated Cline AI and agentic authoring workflows into local repository environments, cutting turnaround cycles by 70%.</li>
+              <li><strong>Agentic Workflow Integration:</strong> Integrated Claude Code, MCP servers, and agent skills into repository workflows, cutting turnaround cycles by 70%.</li>
               <li><strong>Migration Leadership:</strong> Orchestrated full platform migration from OpenCMS to Eleventy (11ty), recognized with a company-wide Certificate of Appreciation.</li>
               <li><strong>Video Production:</strong> Scripted, captured, and edited onboarding and feature walkthrough videos using Camtasia, Loom, and Claude Design.</li>
             </ul>
