@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
-<title>Geoffrin Edwin — Content Engineer | GTM &amp; Technical Systems</title>
+<title>Geoffrin Edwin — Staff Technical Writer &amp; Content Engineer | Observability &amp; AI Systems</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
@@ -17,10 +17,11 @@
     --ink:#F0F6FC;
     --ink-soft:#8B949E;
     --rule:#30363D;
-    --accent:#58A6FF;
-    --accent-glow:rgba(88, 166, 255, 0.15);
+    --accent:#F28226; /* Grafana-inspired warm accent balanced with GitHub dark */
+    --accent-glow:rgba(242, 130, 38, 0.15);
+    --accent-blue:#58A6FF;
     --badge-bg:#1F242C;
-    --max-width:940px;
+    --max-width:960px;
   }
 
   *{box-sizing:border-box;}
@@ -36,7 +37,7 @@
     -webkit-font-smoothing:antialiased;
   }
 
-  a{color:var(--accent); text-decoration:none;}
+  a{color:var(--accent-blue); text-decoration:none;}
   a:hover{text-decoration:underline;}
   a:focus-visible, button:focus-visible, .tab-panel:focus-visible{outline:2px solid var(--accent); outline-offset:2px;}
   code{font-family:'IBM Plex Mono', monospace; font-size:0.9em; background:var(--paper-subtle); padding:2px 6px; border-radius:4px; color:#79C0FF;}
@@ -65,20 +66,19 @@
     display:flex;
     flex-wrap:wrap;
     align-items:center;
-    gap:4px 8px;
+    gap:6px 10px;
   }
   .role-tag span{color:var(--ink-soft); font-size:0.9rem;}
   .timezone-pill{
     display:inline-flex;
     align-items:center;
     background:var(--accent-glow);
-    border:1px solid #58A6FF55;
+    border:1px solid rgba(242, 130, 38, 0.35);
     color:var(--accent);
     font-family:'IBM Plex Mono', monospace;
     font-size:0.8rem;
     padding:3px 10px;
     border-radius:14px;
-    margin-left:6px;
   }
 
   .tabs{
@@ -113,11 +113,11 @@
 
   .pitch-lede{
     font-family:'Fraunces', serif;
-    font-size:1.5rem;
+    font-size:1.45rem;
     font-weight:500;
-    max-width:42ch;
+    max-width:52ch;
     margin:0 0 32px;
-    line-height:1.35;
+    line-height:1.4;
     color:#FFFFFF;
   }
   .pitch-lede em{font-style:normal; color:var(--accent);}
@@ -137,7 +137,7 @@
     position:relative;
     transition:border-color 0.2s ease;
   }
-  .pitch-card:hover{border-color:#58A6FF66;}
+  .pitch-card:hover{border-color:rgba(242, 130, 38, 0.45);}
   .pitch-card h2{
     font-size:1.05rem;
     font-weight:600;
@@ -180,7 +180,7 @@
   .proof-item .title{font-weight:600; color:#FFFFFF; margin-bottom:4px;}
   .proof-item .desc{color:var(--ink-soft); font-size:0.92rem; line-height:1.55;}
 
-  .resume-grid{display:grid; grid-template-columns:250px 1fr; gap:0 40px;}
+  .resume-grid{display:grid; grid-template-columns:260px 1fr; gap:0 40px;}
 
   .side-section{margin-bottom:28px;}
   .side-section h2{
@@ -210,7 +210,7 @@
     margin:0 0 20px;
     color:#FFFFFF;
   }
-  .summary p{font-size:0.98rem; max-width:68ch; margin:0; color:var(--ink); line-height:1.65;}
+  .summary p{font-size:0.98rem; max-width:70ch; margin:0; color:var(--ink); line-height:1.65;}
 
   .entry{
     position:relative;
@@ -232,7 +232,7 @@
     flex-wrap:wrap; gap:4px 16px; margin-bottom:6px;
   }
   .entry-title{font-weight:600; font-size:1.02rem; color:#FFFFFF;}
-  .entry-org{color:var(--ink-soft); font-weight:400;}
+  .entry-org{color:var(--accent-blue); font-weight:400;}
   .entry-dates{font-family:'IBM Plex Mono', monospace; font-size:0.82rem; color:var(--ink-soft); white-space:nowrap;}
   .entry ul{margin:8px 0 0; padding-left:18px;}
   .entry li{margin-bottom:8px; font-size:0.94rem; color:var(--ink); line-height:1.55;}
@@ -245,7 +245,7 @@
     padding:30px 40px 0;
   }
 
-  @media (max-width:720px){
+  @media (max-width:768px){
     .identity, .tabs, .tab-panel{padding-left:20px; padding-right:20px;}
     .resume-grid{grid-template-columns:1fr;}
     .name{font-size:1.8rem;}
@@ -259,8 +259,8 @@
   <div class="identity">
     <h1 class="name">Geoffrin Edwin</h1>
     <div class="role-tag">
-      Content Engineer &bull; Technical Systems &amp; GTM
-      <span class="timezone-pill">Remote &bull; Works in US Timezone</span>
+      Staff Technical Writer &amp; Content Engineer &bull; Observability, Docs-as-Code &amp; AI Systems
+      <span class="timezone-pill">Remote &bull; US Synchronous (EST/PST)</span>
     </div>
   </div>
 
@@ -272,69 +272,75 @@
   <main>
   <div class="tab-panel active" id="panel-pitch" role="tabpanel" aria-labelledby="tab-pitch" tabindex="0">
     <p class="pitch-lede">
-      You need someone that gets expertise <em>out of engineers' heads and onto the web</em>, without shipping slop. Here is my elevator pitch.
+      Great observability documentation requires two things: <em>getting deep into telemetry and failure modes alongside engineers</em>, and <em>leveraging agentic AI workflows with strict human judgment</em> so documentation never ships slop.
     </p>
 
     <div class="pitch-grid">
       <div class="pitch-card">
-        <h2>Agentic Pipelines &amp; Evals, Not a Content Calendar <span class="pill">Systems</span></h2>
+        <h2>Native Observability Literacy: From Telemetry to Adoption <span class="pill">Observability Domain</span></h2>
         <p>
-          I don't manually route drafts through review committees or write in Word docs. To eliminate our team's editorial bottleneck at Site24x7, I built a serverless content pipeline on <strong>Zoho Catalyst + Git Webhooks</strong>:
+          At <strong>Site24x7 (Zoho)</strong>, I didn't write about monitoring from an abstract marketing perspective. I lived inside the mechanics of enterprise infrastructure:
         </p>
         <ul>
-          <li><strong>URL Ingestion &amp; AST Sync:</strong> Fetches live production documentation, spins up a structured markdown/HTML editor, and writes back updates via real-time diff reconciliation.</li>
-          <li><strong>Multi-Step LLM Evals:</strong> Custom evaluation agents audit incoming drafts with structured JSON outputs. They test specifically for voice drift, unsubstantiated marketing claims, and syntax consistency before PR merge.</li>
-          <li><strong>Agentic Daily Tooling:</strong> Daily workflows run through Claude Code, MCP servers, and custom agent skills to turn raw system logs and telemetry into structured drafts without human blocking.</li>
+          <li><strong>Real-World Incident Triage:</strong> Voluntarily joined customer support and engineering escalation channels to triage production monitoring issues alongside DevOps leads, Cloud Architects, and CTOs.</li>
+          <li><strong>Telemetry Deep Dives:</strong> Documented complex system states across Linux performance counters, container/process metrics, anomalous network sockets, threshold configuration rules, and alert profile routing.</li>
+          <li><strong>Testing Every Procedure:</strong> Replicated server monitoring agents, alert thresholds, and CLI configurations locally to identify UX bugs, missing documentation steps, and error conditions before users encountered them.</li>
         </ul>
       </div>
 
       <div class="pitch-card">
-        <h2>Sourcing Truth from the Engineering Trenches <span class="pill">Zero Hand-Holding</span></h2>
+        <h2>AI as an Engineered Craft, Not Auto-Generated Slop <span class="pill">AI Workflows &amp; Evals</span></h2>
         <p>
-          The hardest part of technical content isn't generating words; it's extracting ideas from engineers who have other jobs. To bypass generic marketing questionnaires:
+          I treat AI tools as precision accelerators paired with strict human judgment and deterministic programmatic guardrails:
         </p>
         <ul>
-          <li>I voluntarily took over <strong>support ticket triage</strong> for our entire infrastructure monitoring team.</li>
-          <li>I sat inside high-stakes enterprise escalations with <strong>CTOs, Cloud Architects, and DevOps leads</strong> to diagnose exactly where distributed systems collapsed.</li>
-          <li>I interviewed the core platform developers on the fix, bypassing PR filters to turn undocumented production edge cases into high-credibility architecture guides.</li>
+          <li><strong>Multi-Step LLM Evals:</strong> Deployed automated pre-merge evaluation agents on Zoho Catalyst that inspect incoming pull requests for voice drift, ungrounded marketing fluff, and Markdown formatting inconsistencies before review.</li>
+          <li><strong>Docs-as-Code Agent Tooling:</strong> Integrated Claude Code, Model Context Protocol (MCP) servers, and custom agent skills into Git repositories, turning raw telemetry, release notes, and diff logs into structured drafts.</li>
+          <li><strong>Anti-Hallucination Bar:</strong> Every technical procedure, configuration snippet, and terminal command is independently run, verified, and validated against the actual software. Plausible-sounding text is immediately cut.</li>
         </ul>
       </div>
 
       <div class="pitch-card">
-        <h2>Anti-Slop<span class="pill">Judgment</span></h2>
+        <h2>Docs-as-Code &amp; Content Architecture <span class="pill">Systems Engineering</span></h2>
         <p>
-          A model given a generic prompt writes a Wikipedia summary disguised as a blog post. Decision makers smell AI and bounce immediately.
+          Content is an engineering product. I treat documentation pipelines with the same rigour as production software:
         </p>
-        <p style="margin-top:8px;">
-          My bar for content: <em>does this sound like someone who sat with the team at 2 AM?</em> Concrete failure modes, verified CLI outputs, and multi-step prompt chains keep the output sharp, credible, and authentic.
-        </p>
+        <ul>
+          <li><strong>Modern Static Engine Migration:</strong> Led the end-to-end documentation platform migration from legacy OpenCMS to Eleventy (11ty), earning a company-wide Certificate of Appreciation for accelerating build and release cycles.</li>
+          <li><strong>Serverless Bi-Directional Sync:</strong> Built a custom Catalyst serverless engine syncing documentation edits bi-directionally with Git repositories via webhooks, AST parsing, and diff checks.</li>
+          <li><strong>Information Architecture:</strong> Structured docs into distinct user paths—from beginner "getting started" flows to deep architectural reference specifications and interactive tutorials.</li>
+        </ul>
       </div>
 
       <div class="pitch-card">
-        <h2>4. Production Video &amp; Technical Media <span class="pill">Autonomous GTM</span></h2>
+        <h2>Autonomous Technical Media &amp; Visuals <span class="pill">Full-Stack GTM</span></h2>
         <p>
-          No agencies, briefing loops, review cycles, or inflated bills. I script, record, and edit my own technical walkthroughs and architecture teardowns using <strong>Camtasia</strong>, <strong>Claude Design</strong>, Canva, and <strong>Loom</strong> to explain infrastructure and data workflows visually.
+          Adoption happens faster when users can see the system in action. Working completely independently without agency dependencies:
         </p>
+        <ul>
+          <li>Scripted, recorded, and edited high-credibility architecture teardowns, onboarding flows, and UI walkthroughs using <strong>Camtasia</strong>, <strong>Loom</strong>, and <strong>Claude Design</strong>.</li>
+          <li>Created clear visual diagrams depicting data observability pipelines, configuration rule cascades, and intrusion detection telemetry.</li>
+        </ul>
       </div>
     </div>
 
     <div class="proof-box">
-      <h2>Proof of Work: Writing for Systems &amp; Infrastructure Practitioners</h2>
+      <h2>Proof of Work: Observability &amp; Systems Practitioner Guides</h2>
       <div class="proof-item">
         <div class="title"><a href="https://www.site24x7.com/solutions/detect-cyber-attacks-with-server-monitoring.html" target="_blank" rel="noopener">Detect Cyber Attacks with Server Monitoring &rarr;</a></div>
-        <div class="desc">Systems deep dive examining how lower-level server telemetry, anomalous process spikes, open socket behavior, and cron audits act as early-warning intrusion detectors for security engineers.</div>
+        <div class="desc">Systems deep dive examining how low-level server telemetry, anomalous process spikes, open socket behaviors, and cron modifications serve as actionable early-warning intrusion vectors for engineers.</div>
       </div>
       <div class="proof-item">
         <div class="title"><a href="https://www.site24x7.com/blog/simplified-onboarding-using-configuration-rules" target="_blank" rel="noopener">Automated Infrastructure Onboarding via Configuration Rules &rarr;</a></div>
-        <div class="desc">A practitioner-focused guide detailing dynamic regex tag-matching, automated threshold assignment, and bulk alert-profile association for cloud-scale fleets.</div>
+        <div class="desc">Practitioner guide detailing dynamic regex tag-matching, automated threshold assignment, and bulk alert-profile association for cloud-scale fleets.</div>
       </div>
       <div class="proof-item">
-        <div class="title">The Catalyst Headless CMS &amp; LLM Style Linter (Internal Project)</div>
-        <div class="desc">Serverless content engine running on Zoho Catalyst + Git webhooks with multi-step LLM pre-merge evaluation agents and bi-directional diff synchronization.</div>
+        <div class="title">The Catalyst Headless CMS &amp; LLM Pre-Merge Evaluator (Internal System)</div>
+        <div class="desc">Serverless content engine running on Zoho Catalyst + Git webhooks with structured LLM evaluation agents running automated pre-merge consistency and voice validation.</div>
       </div>
       <div class="proof-item">
-        <div class="title">A little vocal on LinkedIn as well</div>
-        <div class="desc">Public commentary on human-first AI workflows and rejecting synthetic slop: Exhibit <a href="https://lnkd.in/p/g6fXtxPf" target="_blank" rel="noopener">one</a> and <a href="https://lnkd.in/p/g6JKbJ3m" target="_blank" rel="noopener">two</a>.</div>
+        <div class="title">Technical Perspective: Human-in-the-Loop &amp; Rejecting Synthetic Slop</div>
+        <div class="desc">Practitioner takes on why AI tools require ruthless human judgment, deep domain knowledge, and prompt guardrails: Exhibit <a href="https://lnkd.in/p/g6fXtxPf" target="_blank" rel="noopener">one</a> and <a href="https://lnkd.in/p/g6JKbJ3m" target="_blank" rel="noopener">two</a>.</div>
       </div>
     </div>
   </div>
@@ -343,22 +349,23 @@
     <div class="resume-grid">
       <aside>
         <div class="side-section">
-          <h2>Contact &amp; Availability</h2>
+          <h2>Contact &amp; Setup</h2>
           <ul class="contact-list">
             <li><a href="mailto:geoffrinsmailid@gmail.com">geoffrinsmailid@gmail.com</a></li>
-            <li><strong style="color:var(--accent);">Remote (Works in US Timezone)</strong></li>
-            <li style="margin-top:6px;"><a href="https://lnkd.in/p/g6fXtxPf" target="_blank" rel="noopener">LinkedIn Note 1</a> &bull; <a href="https://lnkd.in/p/g6JKbJ3m" target="_blank" rel="noopener">Note 2</a></li>
+            <li><strong style="color:var(--accent);">Remote &bull; US Synchronous</strong></li>
+            <li>Working across EST / PST business hours</li>
+            <li style="margin-top:8px;"><a href="https://lnkd.in/p/g6fXtxPf" target="_blank" rel="noopener">LinkedIn Note 1</a> &bull; <a href="https://lnkd.in/p/g6JKbJ3m" target="_blank" rel="noopener">Note 2</a></li>
           </ul>
         </div>
 
         <div class="side-section">
           <h2>Technical Arsenal</h2>
           <ul class="skill-list">
-            <li><strong>AI / Agentic:</strong> Claude Code, MCP Servers &amp; Skills, Multi-step LLM Evals, Prompt Chaining, Structured JSON Outputs</li>
-            <li><strong>Systems &amp; Stack:</strong> Zoho Catalyst (Serverless), Git, Eleventy (11ty), REST APIs, Webhooks, Python/TS basics</li>
-            <li><strong>Data &amp; Systems Fluency:</strong> Data observability parallels, schema drift, server telemetry anomalies, incident triage</li>
-            <li><strong>Content Systems:</strong> Headless CMS design, Technical Style Guide authoring, S1000D / STE</li>
-            <li><strong>Multimedia:</strong> Camtasia, Loom, Claude Design, Canva, technical diagramming</li>
+            <li><strong>Observability &amp; Systems:</strong> Site24x7 (Infrastructure &amp; APM), Server Telemetry (CPU, memory, disk, network), Metrics &amp; Logs, Threshold Rules, Incident Escalations</li>
+            <li><strong>AI / Agentic Tooling:</strong> Claude Code, MCP Servers &amp; Skills, Multi-step LLM Evals, Prompt Chaining, Structured JSON Outputs, Anti-Hallucination Review</li>
+            <li><strong>Docs-as-Code &amp; Web:</strong> Git, GitHub (PRs, Code Reviews, Actions), Markdown, Eleventy (11ty), Zoho Catalyst (Serverless), REST APIs, Webhooks, Python/TS basics</li>
+            <li><strong>Content Architecture:</strong> Information Architecture (Diátaxis: Concepts, Tutorials, How-Tos, Reference), Technical Style Guides, S1000D / STE</li>
+            <li><strong>Multimedia &amp; UX:</strong> Camtasia, Loom, Claude Design, Canva, Technical Schematics, Product Walkthroughs</li>
           </ul>
         </div>
 
@@ -373,7 +380,7 @@
           <p class="edu-degree">Certificate of Appreciation (Zoho)</p>
           <p class="edu-school">End-to-end CMS migration: OpenCMS &rarr; Eleventy</p>
           <p class="edu-degree" style="margin-top:12px;">Rolls-Royce Star Award</p>
-          <p class="edu-school">Engine disassembly documentation delivered at 98.4% quality audit score</p>
+          <p class="edu-school">Jet engine maintenance documentation delivered at 98.4% quality audit score</p>
         </div>
       </aside>
 
@@ -381,11 +388,7 @@
         <section class="summary">
           <h2>Profile</h2>
           <p>
-            Content Engineer with 9+ years bridging technical systems, developer content, and LLM automation pipelines.
-            Architect of custom serverless headless CMS pipelines on Zoho Catalyst featuring bidirectional diff synchronization
-            and automated pre-merge LLM style evaluation agents. Proven record extracting tacit engineering knowledge directly
-            from support triage and enterprise escalations with CTOs and cloud architects—connecting infrastructure observability
-            to data quality principles (schema drift, silent pipeline failures). Fully autonomous builder working across US timezones.
+            Staff Technical Writer and Content Engineer with 9+ years bridging technical systems, developer documentation, and AI automation workflows. Deep hands-on background in full-stack cloud and infrastructure observability at Site24x7 (Zoho), translating complex telemetry, incident triage, and automated thresholding into clear, practitioner-grade guides. Architect of automated docs-as-code pipelines, Git webhook integrations, and multi-step LLM pre-merge style evaluators. Dedicated to hands-on verification—running software, testing procedures, and applying rigorous human judgment to eliminate hallucinations and AI slop. Fully autonomous builder operating seamlessly in US timezones.
           </p>
         </section>
 
@@ -394,17 +397,17 @@
 
           <div class="entry">
             <div class="entry-header">
-              <span class="entry-title">Content &amp; Growth Engineer <span class="entry-org">— Zoho Corporation (Site24x7)</span></span>
+              <span class="entry-title">Content &amp; Growth Engineer <span class="entry-org">— Zoho Corporation (Site24x7 Observability Platform)</span></span>
               <span class="entry-dates">2022 – Present</span>
             </div>
             <ul>
-              <li><strong>Architected Autonomous CMS Pipeline:</strong> Engineered a serverless content engine on Zoho Catalyst eliminating manual .doc &rarr; HTML publication cycles. System ingests live URLs, syncs edits bidirectionally via diff checks, and pushes directly to git repositories.</li>
-              <li><strong>Multi-Step LLM Style Evaluation Agents:</strong> Authored org-wide technical documentation style guide and deployed automated pre-merge evaluation agents in the repository that audit PRs for formatting, voice, and syntax consistency, eliminating manual nitpicking and voice drift.</li>
-              <li><strong>Tacit Knowledge Extraction:</strong> Voluntarily assumed responsibility for triage across the customer support queue. Shadowed escalations with enterprise CTOs and DevOps engineers, translating edge-case failure modes into architectural blueprints and technical blogs.</li>
-              <li><strong>High-Signal Technical Authoring:</strong> Authored practitioner-focused technical assets establishing authoritative patterns for enterprise engineers, including <a href="https://www.site24x7.com/blog/simplified-onboarding-using-configuration-rules" target="_blank" rel="noopener">'Simplified Onboarding Using Configuration Rules'</a> and <a href="https://www.site24x7.com/solutions/detect-cyber-attacks-with-server-monitoring.html" target="_blank" rel="noopener">'Detect Cyber Attacks with Server Monitoring'</a>.</li>
-              <li><strong>Agentic Workflow Integration:</strong> Integrated Claude Code, MCP servers, and agent skills into repository workflows, cutting turnaround cycles by 70%.</li>
-              <li><strong>Migration Leadership:</strong> Orchestrated full platform migration from OpenCMS to Eleventy (11ty), recognized with a company-wide Certificate of Appreciation.</li>
-              <li><strong>Video Production:</strong> Scripted, captured, and edited onboarding and feature walkthrough videos using Camtasia, Loom, and Claude Design.</li>
+              <li><strong>Observability Documentation &amp; SME Extraction:</strong> Partnered directly with DevOps leads, cloud architects, and platform engineering teams to document Site24x7's cloud and server observability suite. Voluntarily triaged high-tier support escalations to translate real-world production outages and edge cases into high-impact diagnostic guides.</li>
+              <li><strong>"Test What You Document" Discipline:</strong> Set up and deployed server agents, simulated anomalous telemetry loads, and executed CLI commands firsthand to identify product UX friction, clarify documentation paths, and verify complete technical accuracy before publishing.</li>
+              <li><strong>Engineered Multi-Step LLM Evals:</strong> Designed and deployed automated pre-merge evaluation agents on Zoho Catalyst that parse pull request diffs into structured JSON, checking incoming drafts against voice guidelines, technical accuracy constraints, and formatting rules to eliminate editorial bottlenecks.</li>
+              <li><strong>Agentic Docs-as-Code Workflow:</strong> Introduced Claude Code, MCP servers, and custom agent workflows to streamline documentation research, structure release notes, and track content freshness across repos, cutting iteration cycles by 70%.</li>
+              <li><strong>High-Signal Observability Guides:</strong> Authored core practitioner resources breaking down complex observability mechanisms, including <a href="https://www.site24x7.com/blog/simplified-onboarding-using-configuration-rules" target="_blank" rel="noopener">'Simplified Onboarding Using Configuration Rules'</a> (bulk fleet monitoring automation) and <a href="https://www.site24x7.com/solutions/detect-cyber-attacks-with-server-monitoring.html" target="_blank" rel="noopener">'Detect Cyber Attacks with Server Monitoring'</a> (telemetry-driven threat detection).</li>
+              <li><strong>Platform Modernization (Eleventy):</strong> Spearheaded the platform-wide migration of the documentation architecture from OpenCMS to Eleventy (11ty), earning a company-wide Certificate of Appreciation for boosting developer agility and site performance.</li>
+              <li><strong>Full-Lifecycle Technical Video Walkthroughs:</strong> Independently planned, scripted, recorded, and edited developer tutorials and architectural video walkthroughs using Camtasia, Loom, and Claude Design.</li>
             </ul>
           </div>
 
@@ -414,8 +417,9 @@
               <span class="entry-dates">2020 – 2022</span>
             </div>
             <ul>
-              <li><strong>A/B Readability Optimization:</strong> Maintained and scaled developer and advertiser documentation repositories; led structured A/B testing on troubleshooting paths to measurably reduce time-to-resolution.</li>
-              <li><strong>Modular Asset Framework:</strong> Implemented single-source visual asset reuse systems, eliminating redundant diagram production cycles across international product teams.</li>
+              <li><strong>Information Architecture &amp; A/B Optimization:</strong> Maintained, structured, and scaled technical documentation repositories for enterprise users. Conducted continuous A/B testing on content hierarchy and troubleshooting workflows to measurably reduce user time-to-resolution.</li>
+              <li><strong>Modular Single-Source Asset Framework:</strong> Implemented single-source visual and diagrammatic component reuse systems across global documentation sets, eliminating duplicate asset maintenance across teams.</li>
+              <li><strong>Cross-Functional Stakeholder Alignment:</strong> Partnered with product teams, support specialists, and engineers to continuously validate documentation accuracy and eliminate stale references.</li>
             </ul>
           </div>
 
@@ -425,8 +429,8 @@
               <span class="entry-dates">2017 – 2020</span>
             </div>
             <ul>
-              <li><strong>Mission-Critical Systems Precision:</strong> Authored S1000D data modules in Simplified Technical English (STE) for jet engine maintenance and overhaul, earning the Rolls-Royce Star Award (98.4% quality score).</li>
-              <li><strong>Complex Deconstruction:</strong> Decoded OEM blueprints, mechanical schematics, and engineering data to author step-by-step diagnostic workflows for field engineers.</li>
+              <li><strong>Mission-Critical Systems Precision:</strong> Authored S1000D structured data modules in Simplified Technical English (STE) for jet engine propulsion and diagnostic systems, achieving a 98.4% quality score and earning the Rolls-Royce Star Award.</li>
+              <li><strong>Complex Mechanical &amp; Electrical Deconstruction:</strong> Decoded intricate OEM schematics, mechanical blueprints, and technical data through SME interviews to produce step-by-step troubleshooting procedures for technicians.</li>
             </ul>
           </div>
         </section>
@@ -435,7 +439,7 @@
   </div>
   </main>
 
-  <footer>Pitch &amp; Portfolio Page &bull; Geoffrin Edwin</footer>
+  <footer>Pitch &amp; Portfolio Page &bull; Geoffrin Edwin &bull; Prepared for Grafana Labs</footer>
 
 </div>
 
